@@ -1,0 +1,232 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+
+/* Fallback / Critical CSS */
+body,
+html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #030014;
+  /* Fallback Aurora BG */
+  color: white;
+  font-family: 'Outfit', sans-serif;
+}
+
+svg {
+  max-width: 24px;
+  max-height: 24px;
+}
+
+.input-elite {
+  width: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
+  padding: 12px;
+  border-radius: 8px;
+}
+
+/* Vibrant Aurora Styles (Tailwind Layer) */
+/* Vibrant Aurora Styles */
+.glass-card {
+  background-color: rgba(255, 255, 255, 0.03);
+  /* aurora-card */
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  /* aurora-border */
+  border-radius: 1rem;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-gradient {
+  position: relative;
+  overflow: hidden;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  font-weight: 700;
+  color: white;
+  transition: all 0.3s ease-in-out;
+  transform: translateY(0);
+  box-shadow: 0 10px 15px -3px rgba(139, 92, 246, 0.3);
+  /* primary glow */
+  background: linear-gradient(90deg, #7928CA, #FF0080);
+}
+
+.btn-gradient:hover {
+  transform: translateY(-4px);
+}
+
+
+/* Animations */
+@keyframes blob {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+
+  33% {
+    transform: translate(30px, -50px) scale(1.1);
+  }
+
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
+
+  100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+}
+
+
+/* --- CINEMATIC SPLASH SCREEN ANIMATIONS --- */
+
+@keyframes void-expansion {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(20);
+    opacity: 0;
+  }
+}
+
+@keyframes logo-impact {
+  0% {
+    transform: scale(3) translateZ(100px);
+    opacity: 0;
+    filter: blur(20px);
+  }
+
+  40% {
+    transform: scale(0.9) translateZ(0);
+    opacity: 1;
+    filter: blur(0);
+  }
+
+  60% {
+    transform: scale(1.1);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes energy-slash {
+  0% {
+    width: 0;
+    opacity: 0;
+    left: 50%;
+  }
+
+  50% {
+    width: 300px;
+    opacity: 1;
+    left: 50%;
+    transform: translateX(-50%) skewX(-45deg);
+  }
+
+  100% {
+    width: 0;
+    opacity: 0;
+    left: 50%;
+    transform: translateX(-50%) skewX(-45deg);
+  }
+}
+
+@keyframes glitch-text {
+  0% {
+    transform: translate(0);
+    text-shadow: none;
+  }
+
+  20% {
+    transform: translate(-2px, 2px);
+    text-shadow: 2px 0 #ff0080, -2px 0 #00e5ff;
+  }
+
+  40% {
+    transform: translate(2px, -2px);
+    text-shadow: -2px 0 #ff0080, 2px 0 #00e5ff;
+  }
+
+  60% {
+    transform: translate(0);
+    text-shadow: none;
+  }
+
+  100% {
+    transform: translate(0);
+  }
+}
+
+@keyframes scanline {
+  0% {
+    transform: translateY(-100%);
+  }
+
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+.splash-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  overflow: hidden;
+  perspective: 1000px;
+}
+
+.void-ring {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 50px #7928CA, inset 0 0 50px #FF0080;
+  animation: void-expansion 2s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+}
+
+.impact-logo {
+  animation: logo-impact 1.2s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+  position: relative;
+  z-index: 10;
+}
+
+.energy-line {
+  position: absolute;
+  height: 2px;
+  background: white;
+  box-shadow: 0 0 20px #00e5ff, 0 0 40px #00e5ff;
+  top: 50%;
+  animation: energy-slash 0.8s cubic-bezier(0.19, 1, 0.22, 1) 0.5s forwards;
+}
+
+.glitch-effect {
+  animation: glitch-text 0.4s infinite cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+.particles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
