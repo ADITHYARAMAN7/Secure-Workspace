@@ -30,28 +30,39 @@ The platform emphasizes security with JWT-based authentication, password handlin
 
 ## ✨ Key Features
 
-### 1. 🔐 Security & Authentication
-- **Role-Based Access Control (RBAC)**: Distinct dashboards and permissions for Admins, Managers, and Employees.
-- **Secure Login/Register**: JWT implementation for session management.
-- **Cinematic Intro**: Engaging splash screen on application load.
+### 1. 🔐 Advanced Security Architecture
+The platform is built on a **Defense-in-Depth** strategy, incorporating multiple layers of security:
 
-### 2. 📊 Dashboards
+*   **AES-256 Encryption**: Critical data encryption using the **Advanced Encryption Standard (AES-256-CBC)**, ensuring military-grade data protection.
+*   **Digital Signatures (HMAC-SHA256)**: All critical requests are digitally signed to ensure **Data Integrity** and **Non-Repudiation**.
+*   **Bcrypt Password Hashing**: Industry-standard adaptive hashing to protect user credentials against rainbow table attacks.
+*   **Multi-Factor Authentication (MFA)**: A simulated robust MFA system that challenges users for a secondary verification code during sensitive sessions.
+
+### 2. �️ Access Control & Authorization
+*   **Role-Based Access Control (RBAC)**: Distinct permissions for **Admins**, **Managers**, and **Employees**.
+*   **Attribute-Based Access Control (ABAC)**: Fine-grained permission checks (e.g., `authorize('Files')`, `authorize('SystemSettings')`) beyond simple roles.
+*   **Secure Session Management**: Stateless authentication using **JSON Web Tokens (JWT)** with expiration and validation.
+
+### 3. 📂 Secure Vault & Data
+- **Granular Visibility**: Documents have bit-level visibility settings (Admin/Manager/Employee), ensuring strict **Data Confidentiality**.
+- **Secure File Retrieval**: Validated download paths prevent Path Traversal attacks.
+
+
+
+### 4. � Intelligent Dashboards
+The system adapts the interface based on the user's role:
 - **Employee Dashboard**: View assigned tasks, check-in for attendance, upload personal documents.
-- **Manager Dashboard**: Overview of employee status, create and assign tasks, view team performance.
-- **Admin Dashboard**: System-wide controls and user management (features scalable).
+- **Manager Dashboard**: Real-time overview of employee status (Present/Absent), create and assign tasks, view team performance.
+- **Admin Dashboard**: System-wide controls, user management, and security audit logs.
 
-### 3. 📂 Document Vault
-- **Secure Uploads**: Upload documents with description and specific visibility settings.
-- **Granular Permissions**: Control who can see the document (Admin, Manager, Employee-wide).
-- **Secure Download**: Verified download paths ensuring only authorized users access files.
-
-### 4. 💬 Messaging System
+### 5. �💬 Messaging System
 - **Secure Inbox**: Internal messaging system.
 - **Group Broadcasts**: Send messages to "All Managers", "All Employees", or specific individuals.
 
-### 5. 📅 Attendance System
+### 6. 📅 Attendance System
 - **Status Tracking**: "Present", "Absent" status tracking based on daily check-ins.
 - **History**: Users can view their own attendance history.
+
 
 ## 📦 Installation & Setup
 
